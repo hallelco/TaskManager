@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/detailsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="פרטי המשימה"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="40dp" />
+
+
+    <TextView
+        android:id="@+id/detailsTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="כותרת המשימה :"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/statsTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="סטטוס המשימה :"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/detailsSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="מקצוע :"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/detailsPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="עדיפות :"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/detailsDueDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="תאריך :"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/detailsAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="מספר תרגילים :"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/detailsPoints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" נקודות :"
+        android:textSize="18sp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/doneButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="סמן משימה כבוצעה"
+        android:backgroundTint="#DB7093"
+        android:layout_marginBottom="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="חזרה"
+            android:backgroundTint="#DB7093"
+            android:layout_marginEnd="5dp" />
+
+        <Button
+            android:id="@+id/deleteTaskButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="מחיקה"
+            android:backgroundTint="#DB7093"
+            android:layout_marginStart="5dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

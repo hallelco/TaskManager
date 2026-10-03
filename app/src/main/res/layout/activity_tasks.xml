@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TasksActivity"
+    android:background="#FFC0CB"
+    android:gravity="top|center_horizontal"
+    android:paddingTop="50dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/myTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="המשימות שלי"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/tvHello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="  שלום !"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:gravity="right"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+        android:id="@+id/tasksCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="משימות : 0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="right"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/doneTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" משימות שהושלמו : 0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="right"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/pointsCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" נקודות : 0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="right"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp">
+
+        <Spinner
+            android:id="@+id/subjectsFilter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/subjectsFilter" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="סינון המשימות לפי מקצוע:"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/tasksList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:id="@+id/prevScreenButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="חזרה למסך הבית"
+            android:backgroundTint="#DB7093"
+            android:layout_marginTop="5dp"/>
+        <Button
+            android:id="@+id/addTaskButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="הוספת משימה"
+            android:backgroundTint="#DB7093"
+            android:layout_marginTop="5dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

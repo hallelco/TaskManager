@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string-array name="priority">
+        <item>גבוהה</item>
+        <item>בינונית</item>
+        <item>נמוכה</item>
+    </string-array>
+
+    <string-array name="subject">
+        <item>מתמטיקה</item>
+        <item>אנגלית</item>
+        <item>פיזיקה</item>
+        <item>ביולוגיה</item>
+        <item>היסטוריה</item>
+        <item>מדעי המחשב</item>
+    </string-array>
+
+
+    <string-array name="subjectsFilter">
+        <item>הכל</item>
+        <item>מתמטיקה</item>
+        <item>אנגלית</item>
+        <item>פיזיקה</item>
+        <item>ביולוגיה</item>
+        <item>היסטוריה</item>
+        <item>מדעי המחשב</item>
+    </string-array>
+
+    <string-array name="taskType">
+        <item>מבחן</item>
+        <item>שיעורי בית</item>
+    </string-array>
+
+
+</resources>
