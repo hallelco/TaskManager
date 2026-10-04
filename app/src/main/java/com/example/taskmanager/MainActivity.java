@@ -65,14 +65,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        resetButton.setOnClickListener(new View.OnClickListener() {
+        resetButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                showConfirmDialogres();
+            public void onClick(View view)
+            {
+                showConfirmDialogreset();
             }
         });
     }
-    public void showConfirmDialogres() {
+    public void showConfirmDialogreset() {
         new AlertDialog.Builder(this)
                 .setTitle("איפוס")
                 .setMessage("האם אתה בטוח שברצונך לאפס את נתוניך?")

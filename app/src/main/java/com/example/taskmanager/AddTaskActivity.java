@@ -125,6 +125,7 @@ public class AddTaskActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(AddTaskActivity.this, "יש להכניס מספר תרגילים לשיעורי בית", Toast.LENGTH_SHORT).show();
                     }
+                    return;
                 }
                 int amountNumber = Integer.parseInt(amountText);
 
@@ -136,28 +137,28 @@ public class AddTaskActivity extends AppCompatActivity {
 
                 int id = taskStorage.nextId();
                 Intent resultIntent = new Intent();
-                if (taskType.getSelectedItem().toString().equals("שיעורי בית")) {
-
-                    HomeworkTask newTask = new HomeworkTask(id, titleText, subject.getSelectedItem().toString(), priority.getSelectedItem().toString(), dueDateText, false, amountNumber
-                    );
+                if (taskType.getSelectedItem().toString().equals("שיעורי בית"))
+                {
+                    HomeworkTask newTask = new HomeworkTask(id, titleText, subject.getSelectedItem().toString(),
+                            priority.getSelectedItem().toString(), dueDateText, false, amountNumber);
 
                     resultIntent.putExtra("New_HomeworkTask", newTask);
 
-                } else {
-
-                    ExamTask newTask = new ExamTask(id, titleText, subject.getSelectedItem().toString(), priority.getSelectedItem().toString(), dueDateText, false, amountNumber
-                    );
+                } else
+                {
+                    ExamTask newTask = new ExamTask(id, titleText, subject.getSelectedItem().toString(),
+                            priority.getSelectedItem().toString(), dueDateText, false, amountNumber);
 
                     resultIntent.putExtra("New_ExamTask", newTask);
                 }
-
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }
         });
 
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view)
             {

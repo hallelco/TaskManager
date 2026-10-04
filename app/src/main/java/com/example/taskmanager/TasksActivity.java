@@ -91,9 +91,9 @@ public class TasksActivity extends AppCompatActivity {
 
         tasksList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> list, View view, int position, long id) {
 
-                Task selectedTask = (Task) parent.getItemAtPosition(position);
+                Task selectedTask = (Task) list.getItemAtPosition(position);
                 Intent intent = new Intent(TasksActivity.this, TaskDetailsActivity.class);
                 intent.putExtra("SelectedTask", selectedTask);
                 startActivityForResult(intent, 2);            }
@@ -193,7 +193,7 @@ public class TasksActivity extends AppCompatActivity {
     public void showConfirmDialogprev() {
         new AlertDialog.Builder(this)
                 .setTitle("יציאה")
-                .setMessage("האם ברצוניך לצאת למסך הכניסה ?")
+                .setMessage("האם ברצונך לצאת למסך הכניסה ?")
                 .setPositiveButton("כן", (dialog, which) -> {
                     Intent intent = new Intent(TasksActivity.this, MainActivity.class);
                     startActivity(intent);})

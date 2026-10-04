@@ -24,6 +24,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
     private Button deleteTaskButton;
     private TaskStorage taskStorage;
     private TextView statsTask;
+    private TextView detailsTaskType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task_details);
 
         detailsTaskTitle = findViewById(R.id.detailsTaskTitle);
+        detailsTaskType = findViewById(R.id.detailsTaskType);
         detailsSubject = findViewById(R.id.detailsSubject);
         detailsPriority = findViewById(R.id.detailsPriority);
         detailsDueDate = findViewById(R.id.detailsDueDate);
@@ -43,7 +45,8 @@ public class TaskDetailsActivity extends AppCompatActivity {
         taskStorage = new TaskStorage(this);
         selectedTask = (Task) getIntent().getSerializableExtra("SelectedTask");
 
-        if (selectedTask != null) {
+        if (selectedTask != null)
+        {
             showTaskDetails();
         }
 
@@ -52,7 +55,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View view) {
-                showConfirmDialog();
+                showConfirmDialogdelete();
             }
         });
 
@@ -96,6 +99,20 @@ public class TaskDetailsActivity extends AppCompatActivity {
         else{
             stats = "פתוחה";
         }
+
+        if (selectedTask instanceof HomeworkTask) {
+
+            HomeworkTask homeworkTask = (HomeworkTask) selectedTask;
+
+            detailsTaskType.setText("סוג המשימה :" + homeworkTask.getTypeName());
+
+        } else if (selectedTask instanceof ExamTask) {
+
+            ExamTask examTask = (ExamTask) selectedTask;
+
+            detailsTaskType.setText("סוג המשימה :" + examTask.getTypeName());
+        }
+
         detailsTaskTitle.setText("כותרת: " + selectedTask.getTitle());
         statsTask.setText("סטטוס :" + stats);
         detailsSubject.setText("מקצוע: " + selectedTask.getSubject());
@@ -127,12 +144,14 @@ public class TaskDetailsActivity extends AppCompatActivity {
         }
     }
 
-    public void showConfirmDialog() {
+    public void showConfirmDialogdelete()
+    {
 
         new AlertDialog.Builder(this)
                 .setTitle("מחיקת משימה")
                 .setMessage("האם ברצונך למחוק את המשימה?")
-                .setPositiveButton("מחק", (dialog, which) -> {
+                .setPositiveButton("מחק", (dialog, which) ->
+                {
 
                     taskStorage.deleteById(selectedTask.getId());
 

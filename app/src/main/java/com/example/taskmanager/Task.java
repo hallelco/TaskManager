@@ -73,7 +73,7 @@ public abstract class Task implements Serializable, Rewardable
     public abstract int getPoints();
     public abstract String getTypeName();
 
-    protected int getPriorityBonus() {
+    public int getPriorityBonus() {
         if (priority.equals("גבוהה")) {
             return 5;
         } else if (priority.equals("בינונית")) {

@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="פרטי המשימה"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:gravity="center"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="20dp" />
 
 
     <TextView
@@ -22,6 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="כותרת המשימה :"
+        android:textSize="22sp"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/detailsTaskType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="סוג המשימה :"
         android:textSize="18sp"
         android:layout_marginBottom="12dp" />
 
