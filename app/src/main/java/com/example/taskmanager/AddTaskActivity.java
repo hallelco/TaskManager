@@ -151,6 +151,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
                     resultIntent.putExtra("New_ExamTask", newTask);
                 }
+                Toast.makeText(AddTaskActivity.this, "מעולה ! המשימה נשמרה", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }

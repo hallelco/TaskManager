@@ -67,12 +67,14 @@ public class TaskDetailsActivity extends AppCompatActivity {
                     stats = "פתוחה";
                     statsTask.setText("סטטוס :" + stats);
                     selectedTask.setDone(false);
+                    Toast.makeText(TaskDetailsActivity.this, "המשימה סומנה כפתוחה", Toast.LENGTH_SHORT).show();
                     doneButton.setText("סמן משימה כבוצעה");
 
                 } else {
                     stats = "בוצעה";
                     statsTask.setText("סטטוס :" + stats);
                     selectedTask.setDone(true);
+                    Toast.makeText(TaskDetailsActivity.this, "המשימה סומנה כבוצעה", Toast.LENGTH_SHORT).show();
                     doneButton.setText("ביטול סימון כבוצע");
                 }
 
@@ -157,7 +159,7 @@ public class TaskDetailsActivity extends AppCompatActivity {
 
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("DeletedTask", selectedTask.getId());
-
+                    Toast.makeText(TaskDetailsActivity.this, "המשימה נמחקה", Toast.LENGTH_SHORT).show();
                     setResult(RESULT_OK, resultIntent);
                     finish();
                 })

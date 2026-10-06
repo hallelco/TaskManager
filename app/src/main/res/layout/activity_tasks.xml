@@ -30,7 +30,6 @@
         android:gravity="right"
         android:layout_marginTop="10dp"/>
 
-
     <TextView
         android:id="@+id/tasksCount"
         android:layout_width="match_parent"
@@ -82,6 +81,15 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="אין משימות להצגה"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:visibility="gone"/>
+
     <ListView
         android:id="@+id/tasksList"
         android:layout_width="match_parent"
@@ -102,7 +110,7 @@
             android:layout_weight="1"
             android:text="חזרה למסך הבית"
             android:backgroundTint="#DB7093"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginBottom="5dp"/>
         <Button
             android:id="@+id/addTaskButton"
             android:layout_width="0dp"
@@ -110,7 +118,7 @@
             android:layout_weight="1"
             android:text="הוספת משימה"
             android:backgroundTint="#DB7093"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginBottom="5dp"/>
 
 
     </LinearLayout>

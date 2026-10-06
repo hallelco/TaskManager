@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddHomeworkTaskActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
             android:name=".AddTaskActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />

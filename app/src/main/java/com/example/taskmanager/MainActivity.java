@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "יש להכניס שם פרטי", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(name.length() < 2){
+                    enteredName.setError("יש להכניס שם תקני");
+                    Toast.makeText(MainActivity.this, "יש להכניס שם תקני", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 sharedPreferences.edit().putString("name", name).apply();
                 studentName.setText("");
                 Intent intent = new Intent(MainActivity.this, TasksActivity.class);

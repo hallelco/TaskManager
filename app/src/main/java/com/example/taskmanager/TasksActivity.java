@@ -28,6 +28,7 @@ public class TasksActivity extends AppCompatActivity {
     private ListView tasksList;
     private Button addTaskButton;
     private Button prevScreenButton;
+    private TextView tvEmpty;
 
     private TaskStorage taskStorage;
     private ArrayList<Task> tasks;
@@ -39,7 +40,7 @@ public class TasksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
 
-
+        tvEmpty = findViewById(R.id.tvEmpty);
         myTasks = findViewById(R.id.myTasks);
         tvHello = findViewById(R.id.tvHello);
         tasksCount = findViewById(R.id.tasksCount);
@@ -82,6 +83,7 @@ public class TasksActivity extends AppCompatActivity {
                 adapter.clear();
                 adapter.addAll(filteredTasks);
                 adapter.notifyDataSetChanged();
+                updateEmptyMessage();
             }
 
             @Override
@@ -97,6 +99,19 @@ public class TasksActivity extends AppCompatActivity {
                 Intent intent = new Intent(TasksActivity.this, TaskDetailsActivity.class);
                 intent.putExtra("SelectedTask", selectedTask);
                 startActivityForResult(intent, 2);            }
+        });
+
+        tasksList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Task selectedTaskToDelete =
+                        (Task) tasksList.getItemAtPosition(position);
+
+                showConfirmDialogdelete(selectedTaskToDelete);
+
+                return true;
+            }
         });
 
         addTaskButton.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +176,7 @@ public class TasksActivity extends AppCompatActivity {
             adapter.clear();
             adapter.addAll(tasks);
             adapter.notifyDataSetChanged();
+            updateEmptyMessage();
             updateStats();
         }
         if (requestCode == 2 && resultCode == RESULT_OK) {
@@ -170,7 +186,7 @@ public class TasksActivity extends AppCompatActivity {
             adapter.clear();
             adapter.addAll(tasks);
             adapter.notifyDataSetChanged();
-
+            updateEmptyMessage();
             updateStats();
         }
     }
@@ -186,6 +202,7 @@ public class TasksActivity extends AppCompatActivity {
             adapter.clear();
             adapter.addAll(tasks);
             adapter.notifyDataSetChanged();
+            updateEmptyMessage();
         }
 
         updateStats();
@@ -200,5 +217,36 @@ public class TasksActivity extends AppCompatActivity {
                 .setNegativeButton("לא", (d, w) ->
                         Toast.makeText(this, "נשארת במסך הבית", Toast.LENGTH_SHORT).show())
                 .show();
+    }
+
+    public void showConfirmDialogdelete(Task selectedTaskToDelete) {
+
+        new AlertDialog.Builder(this)
+                .setTitle("מחיקת משימה")
+                .setMessage("האם ברצונך למחוק את המשימה?")
+                .setPositiveButton("מחק", (dialog, which) -> {
+
+                    taskStorage.deleteById(selectedTaskToDelete.getId());
+
+                    tasks.clear();
+                    tasks.addAll(taskStorage.loadAllTasks());
+                    adapter.clear();
+                    adapter.addAll(tasks);
+                    adapter.notifyDataSetChanged();
+                    updateEmptyMessage();
+                    updateStats();
+                })
+                .setNegativeButton("ביטול", null)
+                .show();
+    }
+
+    private void updateEmptyMessage() {
+        if (adapter.getCount() == 0) {
+            tvEmpty.setVisibility(View.VISIBLE);
+            tasksList.setVisibility(View.VISIBLE);
+        } else {
+            tvEmpty.setVisibility(View.GONE);
+            tasksList.setVisibility(View.VISIBLE);
+        }
     }
 }
