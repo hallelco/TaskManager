@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.DatePickerDialog;
+import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
@@ -29,7 +31,7 @@ public class AddTaskActivity extends AppCompatActivity {
     private Spinner priority;
 
     private TextView textDueDate;
-    private EditText dueDate;
+    private Button dueDate;
 
     private TextView textAmount;
     private EditText amount;
@@ -57,6 +59,23 @@ public class AddTaskActivity extends AppCompatActivity {
 
         textDueDate = findViewById(R.id.textDueDate);
         dueDate = findViewById(R.id.dueDate);
+
+        dueDate.setOnClickListener(v -> {
+            Calendar c = Calendar.getInstance();
+
+            new DatePickerDialog(
+                    AddTaskActivity.this,
+                    (view, year, month, dayOfMonth) -> {
+                        String selectedDate =
+                                dayOfMonth + "/" + (month + 1) + "/" + year;
+
+                        dueDate.setText(selectedDate);
+                    },
+                    c.get(Calendar.YEAR),
+                    c.get(Calendar.MONTH),
+                    c.get(Calendar.DAY_OF_MONTH)
+            ).show();
+        });
 
         textAmount = findViewById(R.id.textAmount);
         amount = findViewById(R.id.amount);
@@ -110,10 +129,10 @@ public class AddTaskActivity extends AppCompatActivity {
                         Toast.makeText(AddTaskActivity.this, "תאריך לא תקין", Toast.LENGTH_SHORT).show();
                         return;
                 }
-                if (dueDateText.length() != 5 || dueDateText.charAt(2) != '/')
+                if (dueDateText.equals("בחר תאריך הגשה"))
                 {
 
-                    dueDate.setError("יש להכניס תאריך חוקי, למשל 12/12");
+                    dueDate.setError("יש להכניס תאריך חוקי");
 
                     Toast.makeText(AddTaskActivity.this, "תאריך לא תקין", Toast.LENGTH_SHORT).show();
 
